@@ -3,7 +3,7 @@ setwd("C:/Users/Dilara/Documents/R/Coursera/exdata_data_NEI_data")
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
-#Extracting Baltimore data
+#Extracting Baltimore and LA data
 NEI_Baltimore  <- subset(NEI, fips == "24510")
 NEI_Baltimore$County <- "Baltimore"
 NEI_LosAngeles <- subset(NEI, fips == "06037")
@@ -17,7 +17,7 @@ NEI_Baltimore_SCC <- NEI_Baltimore %>% filter(SCC %in% motor_vehicle)
 NEI_LosAngeles_SCC <- NEI_LosAngeles%>% filter(SCC %in% motor_vehicle)
 NEI_BL_LA_SCC <- rbind(NEI_Baltimore_SCC, NEI_LosAngeles_SCC)
 
-# Total emission data per year
+# Total emission data based on year and county
 total_emissions <-  aggregate(Emissions ~ year + County, NEI_BL_LA_SCC, sum)
 
 #barplot
