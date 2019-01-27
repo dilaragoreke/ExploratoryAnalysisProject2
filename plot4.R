@@ -16,6 +16,6 @@ total_emissions <- tapply(NEI_SCC$Emissions, NEI_SCC$year, sum)
 
 # plot
 png("plot4.png", width=480, height=480)
-barplot(total_emissions, xlab = "year", ylab = "Total PM2.5 Emitted in tons", 
+barplot(total_emissions, xlab = "year", ylab = "Total PM2.5 Emitted in tons", ylim = c(0,6e05), 
         col =c("red","blue","green","gray"), main = "Annual Total Emission from coal sources")
 dev.off()

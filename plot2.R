@@ -10,5 +10,5 @@ total_emissions_Baltimore <-  tapply(NEI_Baltimore$Emissions, NEI_Baltimore$year
 
 #bar plot
 png("plot2.png", width=480, height=480)
-barplot(total_emissions_Baltimore, xlab = "Year", ylab = "Total PM2.5 Emitted in tons", col =c("red","blue","green","gray"), main = "Total Emission for each year in Baltimore")
+barplot(total_emissions_Baltimore, xlab = "Year", ylab = "Total PM2.5 Emitted in tons", ylim = c(0,3500), col =c("red","blue","green","gray"), main = "Total Emission for each year in Baltimore")
 dev.off()
